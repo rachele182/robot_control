@@ -27,8 +27,8 @@ Instructions and guide trough the files are in the context.txt file inside all t
 
 
 P.S:  
-**Lab Experiments **  
-The proposed framework presented was validated also trough a placement task on a real 7Dof Franka Emika Panda robot.  
+**Lab Experiments**  
+The proposed framework was validated also trough a placement task on a real 7Dof Franka Emika Panda robot.  
 The experiments were carried out at *Centro di Ricerca Enrico Piaggio* at Dipartimento di Ingegneria, Universita´di Pisa using **libfranka** and **Franka Ros** interface to communicate with the robot. All the blocks including the planner and the impedance controller were implemented as nodes using Robot Operating System (ROS).  
 An overview of the experiment setups is shown in the figure above.  
 
