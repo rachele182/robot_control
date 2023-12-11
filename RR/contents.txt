@@ -1,0 +1,19 @@
+# INSTRUCTIONS #
+
+The folder contains the simulations carried out on a RR planar robot.
+In the movies folder there are the .mp4 files corresponding to the relative tasks: horizzontal grasping, vertical grasping and placement.
+
+In each subfolder there are: 
+# FILES #
+init.m:				setup variables for simulations
+Jacobianoa.m:			file with analytic jacobian
+Jacobianoa_dot.m:			file with analytic jacobian derivative
+Mass.m:                                                         file with mass matrix
+Gravity.m:				file with gravity vector
+Coriolis.m:				file with Coriolis matrix
+cin_dir.m:				file with dyrect kinematics 
+animazione_rr.m  			animation file
+animazione_rr_forces.m                              animation file with interaction forces comparison
+find_dk.m                                                     file used to initialize D,K
+task_union.slx	                                   simulation of the relative task 
+ 	
