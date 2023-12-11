@@ -13,13 +13,14 @@ Firstly we created motiviational examples (interaction + grasping tasks) on a si
 
 The project contains three main repos: 
 
-- **mass_spring_damper** : containes all the Matlab and Simulink files related to the simplified system.
-- **RR**: containes all the Matlab and Simulink files to run different interaction tasks with the proposed planner and controller.
-- **franka**: containes all the code needed to run the simulation of a placement task for a 7-dof Franka Emika Panda. 
+&#x1F538; **mass_spring_damper** : containes all the Matlab and Simulink files related to the simplified system.  
+
+&#x1F538; **RR**: containes all the Matlab and Simulink files to run different interaction tasks with the proposed planner and controller.
+
+&#x1F538;**franka**: containes all the code needed to run the simulation of a placement task for a 7-dof Franka Emika Panda. 
 
 All the simulations are tested and validated using Matlab/Simulink environment.  
 Please note that to run the simulation a version of simulink >=R2020a is needed.  
-
 Instructions and guide trough the files are in the context.txt file inside all the folder. 
 
 <img src="https://github.com/rachele182/robot_control/assets/75611841/f40f21c2-5fe6-4db7-9361-713ebe883019" width="425">
