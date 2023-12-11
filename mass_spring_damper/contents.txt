@@ -1,0 +1,21 @@
+# INSTRUCTIONS #
+
+The three folder refers to the three preliminary tasks:
+MDS_grasping
+MDS_instability
+MDS_interaction
+
+# FILES #
+#MDS_grasping#
+init.m:						setup variables for simulations
+MDS_grasping.slx:		       			simulink file with grasping simulation
+stableMDS_variable_stiffness.slx:			simulink file with grasping simulation and stability check
+
+#MDS_interaction#
+init.m:					 	setup variables for simulations
+MDS_interaction.slx:		       		simulink file with interaction simulation
+		
+#MDS_instability#
+init.m:					 	setup variables for simulations
+MDS_antibouncing.slx:				simulink file with stiffness’ variation to limit the oscillations
+MDS_variableD.slx		       			simulink file with samping variation to limit the peak response to an initial velocity condition
