@@ -19,7 +19,7 @@ The three folders refer to the three preliminary tasks simulated to test the pla
 
 *there are use case studies used to study the behaviour of a mass-damper-spring system in free response to a predefined initial condition. 
 
-**Instrunctions:**  
+**Instructions:**  
 For each simulation you need to follow the same steps:  
     - run init.m file to setup the workspace;  
     - open the correspondant simulink file .slx and click on start simulation;   

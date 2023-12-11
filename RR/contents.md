@@ -17,7 +17,7 @@ In each folder you can find the files
    - **Coriolis.m,Gravity.m,Mass**: matlab files to compute dynamics of RR in terms of Coriol matrix, gravity vector and inertia matrix respectively;
    - **find_dk.m**: file us to initialize damping and stiffness factors.
 
-**Instrunctions:**  
+**Instructions:**  
 For each subfolder to run simulation you need to follow the same steps:  
     - run init.m file to setup the workspace;  
     - open the correspondant simulink file .slx and click on start simulation;   

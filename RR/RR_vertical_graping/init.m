@@ -1,4 +1,32 @@
-%% init come together
+%    begin                : November 2020
+%    authors              : Rachele Nebbia Colomba, Chiara Sammarco, Giorgio Simonini
+%    copyright            : Dipartimento di Ingegneria dell`Informazione (DII) Universita´ di pisa    
+%    email                : rachelenebbia <at> gmail <dot> com
+
+%%Description: Init file for grasping task simulation of a planar RR robot
+%Here you can find all the parameters set for the simulation file .slx (and editable)
+
+
+%% Requirements:
+%here are the requirements of response in terms of settling time, overshoot and steady-state error
+% d             [N*s\m] damping factor
+% k:            [Nm]    stiffnes factor
+% e_max:        [m]     upper bound for steady-state displacement error
+% F_max:        [N]     upper bound for external disturbance
+% ov_max:       [ad]    upper bound for overshoot
+% tsettl_max:   [s]     max assestement time 
+% ts_bound:     [ad]    bandwidth at max assestement time
+% alpha:        [0-1]   parameter used to modulate linearly between critically damped system and max overshoot t
+% F_int_max     [Nm]    upper bound for max intraction force 
+
+%% Parameters:
+% M:            [kg]    mass of the MDS virtual system 
+%mass_can       [kg]    mass of the object 
+% F_weight:     [N]     object weight 
+% a0:                   arbitrarly decreasing factor
+% berta:                parameter to gaurantee condition
+% csi:                  dammping factor
+
 
 g = 9.81; % m/s^2
 e_max = 0.01;
@@ -46,8 +74,9 @@ k_shelf = k_table;
 Ts = -1;
 
 %% Fixed impedance
+% case 1) high stiffness to track
 K_high = [F_max(1)/e_max 0; 0 (mass_can*g)/e_max];
 D_high = [sqrt(4*M*K_high(1,1)) 0; 0 sqrt(4*M*K_high(2,2))];
-
+%case 2) low impedance to limit the interaction forces 
 K_low = [20 0; 0 20];
 D_low = [sqrt(4*M*K_low(1,1)) 0; 0 sqrt(4*M*K_low(2,2))];

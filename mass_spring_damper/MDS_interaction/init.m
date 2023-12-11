@@ -3,10 +3,8 @@
 %    copyright            : Dipartimento di Ingegneria dell`Informazione (DII) Universita´ di pisa    
 %    email                : rachelenebbia <at> gmail <dot> com
 
-%%Description: Init file for Interaction task simulation of a mass-damper-spring system
+%%Description: Init file for grasping task simulation of a mass-damper-spring system
 %Here you can find all the parameters set for the two simulation files .slx (and editable)
-
-
 l1 = 1; %m
 l2 = 1; %m
 I1 = 1; %kg*m^2
