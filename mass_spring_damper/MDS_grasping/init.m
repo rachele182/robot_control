@@ -1,6 +1,14 @@
-%% INIT 
+%    begin                : November 2020
+%    authors              : Rachele Nebbia Colomba, Chiara Sammarco, Giorgio Simonini
+%    copyright            : Dipartimento di Ingegneria dell`Informazione (DII) Universita´ di pisa    
+%    email                : rachelenebbia <at> gmail <dot> com
 
-l1 = 1; %m
+%%Description: Init file for grasping task simulation of a mass-damper-spring system
+%Here you can find all the parameters set for the two simulation files .slx (and editable)
+
+%% Parameter 
+
+l1 = 1; %m 
 l2 = 1; %m
 I1 = 1; %kg*m^2
 I2 = 1; %kg*m^2
@@ -10,17 +18,24 @@ g = 9.81; %m/s^2
 
 a = m2*(l1*l2)/2;
 
-%% SPECIFICHE 
-%specifiche di settling time, overshoot ed errore a regime
-% d, k: coefficiente di damping e costante elastica del sistema
-% e_max:        [m] errore massimo a regime
-% F_max:        [N] stima del massimo disturbo in forza a regime
-% ov_max:       [ad] massimo overshoot accettabile
-% tsettl_max:   [s] tempo di assestamento con banda a
-% ts_bound:     [ad] banda del tempo di assestamento
-% alpha:        [0-1] varia linearmente da sistema criticamente smorzato a massimo overshoot
-% M:            [kg] massa del sistema
+%% Requirements:
+%here are the requirements of response in terms of settling time, overshoot and steady-state error
+% d             [N*s\m] damping factor
+% k:            [Nm]    stiffnes factor
+% e_max:        [m]     upper bound for steady-state displacement error
+% F_max:        [N]     upper bound for external disturbance
+% ov_max:       [ad]    upper bound for overshoot
+% tsettl_max:   [s]     max assestement time 
+% ts_bound:     [ad]    bandwidth at max assestement time
+% alpha:        [0-1]   parameter used to modulate linearly between critically damped system and max overshoot t
+% F_int_max     [Nm]    upper bound for max intraction force 
 
+%% Parameters:
+% M:            [kg]    mass of the MDS system 
+% F_weight:     [N]     object weight 
+% a0:                   arbitrarly decreasing factor
+% berta:                parameter to gaurantee condition
+% csi:                  dammping factor
 
 e_max = 0.05;
 F_max = [2;2]; % N
@@ -33,8 +48,7 @@ mass = 1; %kg
 
 F_int_max = [5;5]; % N
 F_weight = [0;-50]; % N ,abs(F_weight)
-
 a0 = 0.99;
 berta = 0.98;
-csi = 1;
+csi = 1; %critically damped condition 
 disp ('Loaded')

@@ -21,7 +21,7 @@ The project contains three main repos:
 
 All the simulations are tested and validated using Matlab/Simulink environment.  
 Please note that to run the simulation a version of simulink >=R2020a is needed.  
-Instructions and guide trough the files are in the context.txt file inside all the folder. 
+Instructions and guide trough the files are in the **contents.md** inside each folder. 
 
 <img src="https://github.com/rachele182/robot_control/assets/75611841/f40f21c2-5fe6-4db7-9361-713ebe883019" width="425">
 
