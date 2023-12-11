@@ -1,4 +1,10 @@
 function G = Gravity(q)
+%% Description: Compute gravity vector of planar RR robot
+
+% Outputs:   g = gravity vector [2x1]
+% Inputs:    q = joint angles [2x1], rad
+%parameters: l1,l2,m1,m2 = links dimension and masses , kg*m^2
+
 % coder.extrinsic('evalin')
 persistent l1 g l2 m1 m2
 if isempty(g)

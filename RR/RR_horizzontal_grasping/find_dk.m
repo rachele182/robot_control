@@ -1,8 +1,8 @@
 function [d, k] = find_dk(e_max, F_max, ov_max, tsettl_max, ts_bound, alpha, M)
-    %% algorithm for the selection of k and d for mass-damper-spring system given these requirements
-    % Output 
+    %% Description: algorithm for the selection of k and d for mass-damper-spring system given these requirements
+    % Output: 
     % d,k        damping and spring constant
-    % Input
+    % Inputs:
     % e_max      maximum steady-state error
     % F_max      maximum estimated external force
     % ov_max     maximum overshoot

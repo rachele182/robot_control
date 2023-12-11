@@ -1,6 +1,11 @@
-%% B è la matrice di massa nello spazio dei giunti 
 function B = Mass(q)
 % coder.extrinsic('evalin')
+%% Description: Compute Inertia Matrix of planar RR robot
+
+% Outputs:   B = inertia matrix [2x2]
+% Inputs:    q = joint angles [2x1], rad
+%parameters: l1,l2,m1,m2 = links dimension and masses , kg*m^2
+
 persistent l1 l2 I1 I2 m1 m2
 if isempty(l1)
     l1 = evalin('base','l1');

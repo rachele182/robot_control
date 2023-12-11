@@ -1,7 +1,9 @@
 function z = cin_dir(q)
 % coder.extrinsic('evalin')
+%% Description: function to compute direct kinematic RR planar
+% Output: z = EE-position in task space[2x1]
+% Input:  q = joint angles [2x1].
 persistent l1 l2 
-
 if isempty(l1)
     l1 = evalin('base','l1');
     l2 = evalin('base','l2');

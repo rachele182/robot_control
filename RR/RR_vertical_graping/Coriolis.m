@@ -1,5 +1,10 @@
 function C = Coriolis(q,q_dot)
+%% Description: Compute Coriolis Matrix of planar RR robot
 
+% Outputs:   C = Coriol Matrix [2x2]
+% Inputs:    q = joint angles [2x1], rad
+%            q_dot = joint velocities [2x1], rad/s
+%parameters: a = moment of inertia , kg*m^2
 % coder.extrinsic('evalin')
 persistent a
 if isempty(a)
