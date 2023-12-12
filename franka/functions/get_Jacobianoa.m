@@ -1,4 +1,9 @@
 function Ja = get_Jacobianoa(q)
+%% Description: Compute analytic Jacobian of 7-dof Franka Emika Panda robot to map from joint space to task space
+% Outputs:   Ja = analytic Jacobian [6x7]
+% Inputs:    q = joint angles [7x1], rad
+% coder.extrinsic('evalin')
+
 q1 = q(1);
 q2 = q(2);
 q3 = q(3);

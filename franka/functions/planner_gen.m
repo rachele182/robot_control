@@ -1,21 +1,26 @@
 function k = planner_gen(F_ext, z, z_des, dz_des, int, comp, e_max, F_max, F_int_max)
-%% Description
-% Set the K coefficient for a variable impedance controller based on a
-% desired trajectory
+%    begin                : November 2020
+%    authors              : Rachele Nebbia Colomba, Chiara Sammarco, Giorgio Simonini
+%    copyright            : Dipartimento di Ingegneria dell`Informazione (DII) Universita´ di pisa    
+%    email                : rachelenebbia <at> gmail <dot> com
+
+%% ------- Description ----------- %%
+% Variable Impedance Modulator
+% Goal: Set the stiffness coefficient for a variable impedance controller to maintain interaction forces and steady-state-error under a desired upper bound during
+%       interaction and grasping task in a partially unknown environment 
 
 %% Outputs
-% k             stiffness
-
+% k             stiffness value [N/m]
 %% Inputs
-% F_ext         measured external force
-% z_des         desired trajectory
-% z             current position
+% F_ext         measured external force [N]
+% z_des         desired trajectory [m]
+% z             current position [m]
 % int, comp     booleans for the interaction and compensation phase
 
-%% Parameters
-% F_int_max     desired interaction force
-% F_max         nominal disturbance forces
-% e_max         maximum steady-state error
+%% Parameters (task requiremnts)
+% F_int_max     desired interaction force  [N]
+% F_max         nominal disturbance forces [N]
+% e_max         maximum steady-state error [m]
 
 %% persistent initialization
 persistent ki kc F_comp int_prec comp_prec z_int z_int_dir set_F_comp
@@ -29,7 +34,7 @@ if isempty(kc)
       kc = F_max/e_max;     % k obtained from compensation
 end
 if isempty(z_int) 
-    z_int = 1000;       % obstacle(or interaction) position
+    z_int = 1000;           % obstacle(or interaction) position
 end
 if isempty(z_int_dir) 
     z_int_dir = 0;          % prohibited direction due to the obstacle

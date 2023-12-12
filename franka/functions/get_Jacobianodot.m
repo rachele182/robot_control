@@ -1,4 +1,9 @@
 function Ja_dot = get_Jacobianodot(q,dq)
+%% Description: Compute analytic Jacobian of 7-dof Franka Emika Panda robot to map from joint space to task space
+% Outputs:   Ja_dot = first time-derivative analytic Jacobian [6x7]
+% Inputs:    q = joint angles [7x1], rad
+%            dq = joint velocities [7x1], rad/s
+% coder.extrinsic('evalin')
 q1 = q(1);
 q2 = q(2);
 q3 = q(3);

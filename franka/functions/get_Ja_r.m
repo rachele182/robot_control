@@ -1,4 +1,9 @@
 function Ja_r = get_Ja_r(q)
+%% Description: Compute analytic rotational Jacobian of 7-dof Franka Emika Panda robot --> last three rows used to construct all Jacobian 
+% Outputs:   Ja_p = analytic Jacobian, translational part [3x7]
+% Inputs:    q = joint angles [7x1], rad
+% coder.extrinsic('evalin')
+
 q1 = q(1);
 q2 = q(2);
 q3 = q(3);

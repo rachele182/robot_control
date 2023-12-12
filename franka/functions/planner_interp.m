@@ -1,13 +1,19 @@
 function [K,D,Kvis, Dvis] = planner_interp(time, kx_f, ky_f, kz_f, e_max, F_max, M, berta, a0, mass, csi)
-%% Description
-% Interpolate K in order to guarantee stability
+%    begin                : November 2020
+%    authors              : Rachele Nebbia Colomba, Chiara Sammarco, Giorgio Simonini
+%    copyright            : Dipartimento di Ingegneria dell`Informazione (DII) Universita´ di pisa    
+%    email                : rachelenebbia <at> gmail <dot> com
+
+%% ------- Description ----------- %%
+% Variable Impedance Modulator
+% Goal: Interpolate the values of K computed from the planner_gen.m in order to guarantee stability condition (in lyapunov sense)
 
 %% Outputs
-% K             Stiffness matrix
-% D             Damping matrix
+% K             Stiffness matrix [6x6] Nm
+% D             Damping matrix   [6x6] N*s/m
 
 %% Inputs
-% kx_f, ky, f   desired values of K
+% kx_f, k_y, kz_f   desired values of K computed from planner_gen.m [Nm]
 
 %% Parameters
 % F_max         nominal disturbance forces
@@ -22,7 +28,7 @@ if isempty(time_prec)
     time_prec = 0;              % previous simulation time
 end
 if isempty(kx)
-   kx = F_max/e_max;         % last value of k
+   kx = F_max/e_max;            % last value of k
 end
 if isempty(ky)
    ky = F_max/e_max;
@@ -35,7 +41,7 @@ end
 if kx_f <= kx       
     kx = kx_f;
 else 
-    % increese k in accordance with the stability conditions
+    % increase k in accordance with the stability conditions 
     kx_i = kx;
     k_dotx = berta*(4*a0*sqrt(kx_i/mass)*(kx_i)^(3/2))/(sqrt(kx_i) + 2*a0*csi*sqrt(kx_i));
     k_tempx = kx_i + k_dotx*(time -time_prec);
@@ -85,9 +91,9 @@ dz = sqrt(4*kz*M);
 D = zeros(6,6);
 K = zeros(6,6);
 D(1:3,1:3) = diag([dx, dy, dz]);
-D(4:6,4:6) = diag([2*sqrt(300) 2*sqrt(300) 2*sqrt(300)]); %rot damping
+D(4:6,4:6) = diag([2*sqrt(300) 2*sqrt(300) 2*sqrt(300)]); %rot damping --> fixed 
 K(1:3,1:3) = diag([kx, ky, kz]);
-K(4:6,4:6) = diag ([300 300 300]); %rot stiffness
+K(4:6,4:6) = diag ([300 300 300]); %rot stiffness --> are fixed 
 Kvis = [kx; ky; kz];
 Dvis = [dx; dy; dz];
 end

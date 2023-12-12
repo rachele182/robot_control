@@ -1,5 +1,10 @@
 function M_pinv = damped_pseudo_inverse(M, lambda_max, epsilon)
 %{
+%    begin                : November 2020
+%    authors              : Rachele Nebbia Colomba, Chiara Sammarco, Giorgio Simonini
+%    copyright            : Dipartimento di Ingegneria dell`Informazione (DII) Universita´ di pisa    
+%    email                : rachelenebbia <at> gmail <dot> com
+
 ===========================================================================
 	This function computes the damped pseudo inverse (Lev-Marq)
 ---------------------------------------------------------------------------
