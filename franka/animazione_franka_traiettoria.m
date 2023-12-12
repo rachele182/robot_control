@@ -1,23 +1,30 @@
-%% Da fare in modo più efficiente il calcolo delle matrici di trasformazione
+%    begin                : November 2020
+%    authors              : Rachele Nebbia Colomba, Chiara Sammarco, Giorgio Simonini
+%    copyright            : Dipartimento di Ingegneria dell`Informazione (DII) Universita´ di pisa    
+%    email                : rachelenebbia <at> gmail <dot> com
 
-%% setup
+%% Description: matlab script file to visualize animation of the placement task
+%% data are acquired from the simulation file used to test the impedance control in tests_control_franka.slx 
+
+%% Setup DH 
 [DH, Convention] = Load_Franka_DH();
 % movie parameters
 movie_mode = 0;
 k = 1;				% init of movie's frames counter
 movie_fps = 40;		% movie frame per second
-movie_title = 'titoloooo';
+movie_title = 'Test';
 
-%% Animazione franka
+%% Animation parameters
 inc=0.05;
 fps = movie_fps;
 period=1/fps;
 
+% Initialize parameters 
 tprec=0;
 index=1;
 t = out.q.time;
 sizet=size(t);
-
+% initial joint angles 
 q1 = out.q.Data(1, 1);
 q2 = out.q.Data(2, 1);
 q3 = out.q.Data(3, 1);
@@ -26,11 +33,10 @@ q5 = out.q.Data(5, 1);
 q6 = out.q.Data(6, 1);
 q7 = out.q.Data(7, 1);
 q = [q1 q2 q3 q4 q5 q6 q7 0];
+
 %% Graphics
 figh = figure('name', 'Franka');
-% set(	gca, 'drawmode', 'fast');
-% lighting phong;
-% set(gcf, 'Renderer', 'zbuffer');
+% build robot model from links stl files 
 link0 = patch(stlread('franka-gripper_urdf-2021-02-25/meshes/link0_mod.stl'),...
     'EdgeColor','none', 'FaceLighting','gouraud');
 link1 = patch(stlread('franka-gripper_urdf-2021-02-25/meshes/link1_mod.stl'),...
@@ -51,16 +57,7 @@ link7 = patch(stlread('franka-gripper_urdf-2021-02-25/meshes/link7_mod.stl'),...
 camlight('headlight');
 material('dull');
 
-% link0 = patch(stlread('matlab_original/data/FrankaSTLModel/link0.stl'));
-% link1 = patch(stlread('matlab_original/data/FrankaSTLModel/link1.stl'));
-% link2 = patch(stlread('matlab_original/data/FrankaSTLModel/link2.stl'));
-% link3 = patch(stlread('matlab_original/data/FrankaSTLModel/link3.stl'));
-% link4 = patch(stlread('matlab_original/data/FrankaSTLModel/link4.stl'));
-% link5 = patch(stlread('matlab_original/data/FrankaSTLModel/link5.stl'));
-% link6 = patch(stlread('matlab_original/data/FrankaSTLModel/link6.stl'));
-% link7 = patch(stlread('matlab_original/data/FrankaSTLModel/link7.stl'));
-
-%% Calculations
+%% Calculations of HGT from DH model --> chain 
 chain = FramesChainFromDH(DH,q,Convention);
 A0 = [  1 0 0 0; ...
         0 1 0 0; ...
@@ -74,6 +71,7 @@ A5 = chain(:,:,5);
 A6 = chain(:,:,6);
 A7 = chain(:,:,7);
 
+%% tranform in HGT 
 link0_T = hgtransform('Parent',gca);
 set(link0_T,'Matrix', A0);
 set(link0,'Parent', link0_T);
@@ -115,7 +113,7 @@ set(link7,'Parent', link7_T);
 set(link7, 'facec', [255,0,0]./255);
 
 % plot config
-View = [30 20];				% vista iniziale
+View = [30 20];				% Initial plot view 
 axis equal;
 grid on;
 xlabel('x');
@@ -126,6 +124,7 @@ view(View(1, 1), View(1, 2));
 
 pause();
 
+%% Start Loop for animation 
 while index < sizet(1)
     %cla
     while t(index) < (tprec+period) 
@@ -181,14 +180,8 @@ while index < sizet(1)
     set(link7_T,'Matrix', A7);
     set(link7,'Parent', link7_T);
     
-%     % plot config
-%     View = [30 20];				% vista iniziale
-%     axis equal;
-%     grid on;
-%     %hold on
-%     view(View(1, 1), View(1, 2));
-    tprec=t(index);
-    
+    %update iteration step
+    tprec=t(index); 
     drawnow;
     pause(period);
     index = index +1;
