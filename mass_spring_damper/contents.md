@@ -15,7 +15,7 @@ The three folders refer to the three preliminary tasks simulated to test the pla
 3. **MDS_instability** *:  
    - **init.m**: matlab file to setup all the variables for simulation;  
    - **MDS_antibouncing.slx** : simulink file containing the simulation where stifsness variation is computed to limit the oscillations;
-   - **MDS_variableD.slx** : simulink file continaining a variation on the damping factor to limit peak response to an initial velocity condition.
+   - **MDS_variableD.slx** : simulink file containing a variation on the damping factor to limit peak response to an initial velocity condition.
 
 *there are use case studies used to study the behaviour of a mass-damper-spring system in free response to a predefined initial condition. 
 
