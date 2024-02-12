@@ -1,6 +1,6 @@
 ### <font color="green"> <span style="font-size:larger;"> Contents of RR: </font> </span>
 
-Here afther a brief description of the contents of the folder and instrunctions on how to run the files.  
+Here after a brief description of the contents of the folder and instrunctions on how to run the files.  
 The three main folders refer to the three different tasks simulated to test the planner on a planar RR robot. 
 1. **RR_vertical_grasping** : the robot has to grasp an object from above, in this case the interaction is only on the y-axis; 
 2. **RR_horizzontal_grasping**: the robot has to grasp an object from the side, in this case the interaction is on the x-axis and y-axis; 

@@ -1,11 +1,11 @@
 ### <font color="green"> <span style="font-size:larger;"> Contents of franka: </font> </span>
 
-Here afther a brief description of the contents of the folder and instrunctions on how to run the files.  
+Here after a brief description of the contents of the folder and instrunctions on how to run the files.  
 The are three subfolders oragnized as follows: 
 1. **franka-gripper_urdf-2021-02-25** : it contains all the .stl files of the robot used to create the animation files;
 2. **functions**: it contains all the functions used in the simulation from the dynamic model of the robot to the geometric and analytical Jacobian matrices.
     - planner_gen.m, planner_interp.m = contain the functions of the impedance planner used to perform the task to achieve requirements in term of track performance and interaction forces; 
-3. **matlab_original**: cotains some utils file such as De Luca dynamic model and DH convention files used to calculate direct kinematics. 
+3. **matlab_original**: contains some utils file such as De Luca dynamic model and DH convention files used to calculate direct kinematics. 
    
 The main files to refer to run the simulation of the placement task are: 
 
